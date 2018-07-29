@@ -1,0 +1,54 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+   <session-factory>
+   
+      <property name = "hibernate.dialect">
+         org.hibernate.dialect.Oracle10gDialect
+      </property>
+      
+      <property name = "hibernate.connection.driver_class">
+  oracle.jdbc.driver.OracleDriver
+      </property>
+      
+      <!-- Assume hibernatedb is the database name -->
+      
+      <property name = "hibernate.connection.url">
+      jdbc:oracle:thin:@oracle.biziitech.com:1521/PDB1
+      
+      
+      <!--  
+      /(DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = oracle.biziitech.com)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = oratest)
+    )
+  )/hibernatedb1?createDatabaseIfNotExist=true -->
+     <!-- Assume hibernatedb is the database name// /hibernatedb1?createDatabaseIfNotExist=true -->
+      
+      </property>
+      
+      <property name="hibernate.connection.verifyServerCertificate">false</property>
+	  <property name="hibernate.connection.useSSL">true</property>
+      
+      <property name = "hibernate.connection.username">
+     c##_bizipos as sysdba
+      </property>
+      
+      <property name = "hibernate.connection.password">
+       bizipos
+      </property>
+       <property name="hibernate.hbm2ddl.auto">create</property>
+       
+      <property name="show_sql">true</property>
+      
+      <!-- List of mapping entity class files -->
+      <mapping class = "org.aritra.dto.UserDetails"/>
+      <mapping class = "org.aritra.dto.Vehicle"/>
+      <mapping class = "org.aritra.dto.TwoWheeler"/>
+      <mapping class = "org.aritra.dto.FourWheeler"/>
+      
+   </session-factory>
+</hibernate-configuration>  
